@@ -1,0 +1,32 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Admin",
+      "sobrenome": "Sistema",
+      "cpf": "000.000.000-00",
+      "email": "admin@email.com",
+      "senha": "123",
+      "rua": "Rua Central",
+      "cep": "01000-000",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "telefone": "(11) 99999-9999",
+      "isAdmin": true
+    },
+    {
+      "nome": "maria",
+      "sobrenome": "clara",
+      "cpf": "23972382983",
+      "email": "maria@email",
+      "senha": "123",
+      "rua": "maris",
+      "cep": "23982932",
+      "cidade": "mogi",
+      "estado": "sp",
+      "telefone": "12120192084029",
+      "isAdmin": false,
+      "id": "B5kABD_"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Devify - Painel do Administrador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="home.html" class="logo">🎵 Devify Admin</a>
+        <a href="home.html" style="color:#b3b3b3; font-size: 14px;">Voltar ao Início</a>
+    </header>
+
+    <div class="container" style="max-width: 1100px;">
+        <h2>Gestão de Utilizadores</h2>
+
+        <!-- Área do Formulário de Edição (Inicia oculto) -->
+        <div id="box-edicao" style="display: none; background: #242424; padding: 20px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #1DB954;">
+            <h3 style="color: #1DB954; margin-bottom: 15px;">Editar Utilizador</h3>
+            <form id="form-editar" class="form-grid">
+                <input type="hidden" id="edit-id">
+                
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" id="edit-nome" required>
+                </div>
+                <div class="form-group">
+                    <label>Sobrenome</label>
+                    <input type="text" id="edit-sobrenome" required>
+                </div>
+                <div class="form-group">
+                    <label>CPF</label>
+                    <input type="text" id="edit-cpf" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="text" id="edit-telefone" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="edit-email" required>
+                </div>
+                <div class="form-group">
+                    <label>Cidade</label>
+                    <input type="text" id="edit-cidade" required>
+                </div>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <input type="text" id="edit-estado" maxlength="2" required>
+                </div>
+                
+                <div class="form-group full-width" style="display: flex; gap: 10px; margin-top: 10px;">
+                    <button type="submit" class="btn" style="flex: 1;">Salvar Alterações</button>
+                    <button type="button" onclick="cancelarEdicao()" class="btn btn-secondary" style="flex: 1;">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Barra de Busca -->
+        <div class="search-box">
+            <input type="text" id="search-cpf" placeholder="Buscar utilizador por CPF..." style="flex: 1;">
+            <button onclick="buscarPorCPF()" class="btn" style="width: auto; padding: 10px 25px;">Buscar</button>
+            <button onclick="carregarUsuarios()" class="btn btn-secondary" style="width: auto; padding: 10px 25px;">Limpar</button>
+        </div>
+
+        <!-- Tabela de Usuários -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Cidade/UF</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-usuarios"></tbody>
+        </table>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
