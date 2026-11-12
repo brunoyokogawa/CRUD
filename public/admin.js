@@ -42,6 +42,11 @@ function renderizarTabela(usuarios) {
 
     usuarios.forEach(u => {
         const tr = document.createElement('tr');
+        const ehAdmin = u.isAdmin === true || String(u.id) === '1';
+        const botaoApagar = ehAdmin
+            ? ''
+            : `<button onclick="deletarUsuario('${u.id}')" class="btn btn-danger" style="padding: 6px 12px; font-size:12px;">Apagar</button>`;
+
         tr.innerHTML = `
             <td>${u.nome} ${u.sobrenome}</td>
             <td>${u.cpf}</td>
@@ -50,7 +55,7 @@ function renderizarTabela(usuarios) {
             <td>${u.cidade}/${u.estado}</td>
             <td class="actions-cell">
                 <button onclick="prepararEdicao('${u.id}')" class="btn btn-secondary" style="padding: 6px 12px; font-size:12px;">Editar</button>
-                <button onclick="deletarUsuario('${u.id}')" class="btn btn-danger" style="padding: 6px 12px; font-size:12px;">Apagar</button>
+                ${botaoApagar}
             </td>
         `;
         tbody.appendChild(tr);

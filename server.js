@@ -16,9 +16,9 @@ const porta = process.env.PORT || 3000;
 // Utiliza os middlewares padrão
 server.use(middlewares);
 
-// Redireciona a rota raiz '/' diretamente para a tela de login
+// Redireciona a rota raiz '/' diretamente para a nova página principal (index.html)
 server.get('/', (req, res) => {
-    res.redirect('/login.html');
+    res.redirect('/index.html');
 });
 
 // Usa o roteador do db.json para as rotas da API REST
