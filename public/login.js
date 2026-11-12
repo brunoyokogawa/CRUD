@@ -4,7 +4,7 @@ document.getElementById('form-login').addEventListener('submit', async (e) => {
     const senha = document.getElementById('senha').value;
 
     try {
-        const response = await fetch(`http://localhost:3000/usuarios?email=${email}&senha=${senha}`);
+        const response = await fetch(`/usuarios?email=${email}&senha=${senha}`);
         const usuarios = await response.json();
 
         if (usuarios.length > 0) {

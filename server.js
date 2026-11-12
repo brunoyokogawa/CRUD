@@ -11,7 +11,7 @@ const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
 // Define a porta em que o servidor irá rodar
-const porta = 3000;
+const porta = process.env.PORT || 3000;
 
 // Utiliza os middlewares padrão
 server.use(middlewares);

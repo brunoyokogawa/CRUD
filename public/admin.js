@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function carregarUsuarios() {
     try {
-        const response = await fetch('http://localhost:3000/usuarios');
+        const response = await fetch('/usuarios');
         const usuarios = await response.json();
         renderizarTabela(usuarios);
     } catch (error) {
@@ -28,7 +28,7 @@ async function buscarPorCPF() {
     if (!cpf) return carregarUsuarios();
 
     try {
-        const response = await fetch(`http://localhost:3000/usuarios?cpf=${cpf}`);
+        const response = await fetch(`/usuarios?cpf=${cpf}`);
         const usuarios = await response.json();
         renderizarTabela(usuarios);
     } catch (error) {
@@ -60,7 +60,7 @@ function renderizarTabela(usuarios) {
 // Preenche os campos do formulário e exibe o bloco de edição
 async function prepararEdicao(id) {
     try {
-        const response = await fetch(`http://localhost:3000/usuarios/${id}`);
+        const response = await fetch(`/usuarios/${id}`);
         const u = await response.json();
 
         document.getElementById('edit-id').value = u.id;
@@ -98,7 +98,7 @@ async function salvarEdicao(e) {
     };
 
     try {
-        const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
+        const response = await fetch(`/usuarios/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dadosAtualizados)
@@ -124,7 +124,7 @@ function cancelarEdicao() {
 async function deletarUsuario(id) {
     if (confirm('Tem certeza de que deseja eliminar este utilizador?')) {
         try {
-            const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
+            const response = await fetch(`/usuarios/${id}`, {
                 method: 'DELETE'
             });
 
