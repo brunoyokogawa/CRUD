@@ -1,3 +1,12 @@
+// Máscara de 11 dígitos para CPF na edição
+document.getElementById('edit-cpf').addEventListener('input', (e) => {
+    let valor = e.target.value.replace(/\D/g, '').slice(0, 11);
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    e.target.value = valor;
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 
@@ -91,6 +100,11 @@ async function salvarEdicao(e) {
     e.preventDefault();
 
     const id = document.getElementById('edit-id').value;
+    const cpfNumeros = document.getElementById('edit-cpf').value.replace(/\D/g, '');
+    if (cpfNumeros.length !== 11) {
+        alert('O CPF deve conter exatamente 11 números.');
+        return;
+    }
 
     const dadosAtualizados = {
         nome: document.getElementById('edit-nome').value,
